@@ -3,6 +3,10 @@ import { apiUrl } from "../config.json";
 
 const apiEndpoint = apiUrl + "/users";
 
+function userUrl(id) {
+  return `${apiEndpoint}/${id}`;
+}
+
 export async function register(user) {
   return await http.post(apiEndpoint, {
     email: user.email,
@@ -10,3 +14,9 @@ export async function register(user) {
     password: user.password,
   });
 }
+
+export function getUser(userId) {
+  return http.get(userUrl(userId));
+}
+
+//TODO for backend services you will want to add an update password as well as attach it to this service

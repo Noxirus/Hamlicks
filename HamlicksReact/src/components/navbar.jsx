@@ -27,6 +27,11 @@ const NavBar = ({ user }) => {
               Flavours
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/about">
+              About
+            </NavLink>
+          </li>
           {/* This is to check if the user is logged in */}
           {!user && (
             <React.Fragment>
@@ -46,7 +51,7 @@ const NavBar = ({ user }) => {
           {user && (
             <React.Fragment>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/profile">
+                <NavLink className="nav-link" to={`/profile/${user._id}`}>
                   {user.name}
                 </NavLink>
               </li>

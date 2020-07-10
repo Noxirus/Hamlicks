@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Navbar from "./components/navbar";
+import UserProfile from "./components/userProfile";
 import Flavours from "./components/flavours";
 import FlavourDescription from "./components/flavourDescription";
 import FlavourForm from "./components/flavourForm";
 import Home from "./components/home";
+import About from "./components/about";
 import NotFound from "./components/common/notFound";
 import LoginForm from "./components/loginForm";
 import Logout from "./components/logout";
@@ -34,7 +36,10 @@ class App extends Component {
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={RegisterForm} />
+            {/*TODO at the moment this will direct someone to edit even if not admin */}
             <ProtectedRoute path="/flavoursedit/:id" component={FlavourForm} />
+            <ProtectedRoute path="/profile/:id" component={UserProfile} />
+            <Route path="/about" component={About} />
             <Route path="/flavours/:id" component={FlavourDescription} />
             <Route
               path="/flavours"
