@@ -37,7 +37,6 @@ router.post("/", [auth, admin], async (req, res) => {
 });
 
 //Update a flavour in the DB
-//TODO may also need to update all other aspects of the flavour class
 router.put("/:id", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);

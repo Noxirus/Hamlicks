@@ -1,1 +1,5 @@
 {"metadata":{"stringValue":"\"5efa441b49762a9ff87e320e5efa54095ef03060e4fdeda5\"","kind":"ObjectId","value":"5efa441b49762a9ff87e320e5efa54095ef03060e4fdeda5","path":"_id","reason":{}},"level":"error","message":"Cast to ObjectId failed for value \"5efa441b49762a9ff87e320e5efa54095ef03060e4fdeda5\" at path \"_id\" for model \"User\""}
+{"metadata":{"ok":0,"code":11000,"codeName":"DuplicateKey","keyPattern":{"email":1},"keyValue":{"email":"Husband@hotmail.com"},"name":"MongoError"},"level":"error","message":"E11000 duplicate key error collection: hamlicks.users index: email_1 dup key: { email: \"Husband@hotmail.com\" }"}
+{"metadata":{},"level":"error","message":"res.send(...).select is not a function"}
+{"metadata":{},"level":"error","message":"res.send(...).select is not a function"}
+{"metadata":{},"level":"error","message":"user.select is not a function"}

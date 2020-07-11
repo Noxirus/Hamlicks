@@ -4,6 +4,7 @@ import Joi from "joi-browser";
 import auth from "../services/authService";
 import { Redirect } from "react-router-dom";
 
+//TODO Make the text forms for the login window a bit smaller maybe? (they dont need to be this long)
 class LoginForm extends Form {
   state = {
     data: { email: "", password: "" },

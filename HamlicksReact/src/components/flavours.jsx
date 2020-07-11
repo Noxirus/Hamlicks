@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getFlavours, deleteFlavour } from "../services/flavourService";
+import auth from "../services/authService";
 import FlavoursTable from "./flavoursTable";
 import Pagination from "./common/pagination";
 import SearchBox from "./common/searchBox";
@@ -96,13 +97,12 @@ class Flavours extends Component {
   render() {
     const { length: count } = this.state.flavours;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
-    const { user } = this.props;
-
+    const user = auth.getCurrentUser();
     if (count === 0)
       return (
         <div>
           {/*TODO this button is repeated twice */}
-          {user && (
+          {user && user.isAdmin && (
             <Link
               to="/flavoursEdit/new"
               className="btn btn-primary"
@@ -127,7 +127,7 @@ class Flavours extends Component {
           />
         </div>
         <div className="col">
-          {user && (
+          {user && user.isAdmin && (
             <Link
               to="/flavoursEdit/new"
               className="btn btn-primary"
@@ -137,6 +137,7 @@ class Flavours extends Component {
             </Link>
           )}
           <p>Currently {totalCount} flavours in stock.</p>
+
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <FlavoursTable
             flavours={flavours}
