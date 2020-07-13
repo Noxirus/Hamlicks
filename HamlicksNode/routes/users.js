@@ -43,6 +43,7 @@ router.post("/", async (req, res) => {
 });
 
 //Update a user in the DB[auth, admin],
+//TODO Will need to sometimes check admin if the id != the id of the user being changed?
 router.put("/:id", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -57,7 +58,6 @@ router.put("/:id", auth, async (req, res) => {
       name: req.body.name,
       email: req.body.email,
       password: encryptedPassword,
-      isAdmin: req.body.isAdmin,
     },
     {
       new: true,
@@ -65,9 +65,12 @@ router.put("/:id", auth, async (req, res) => {
   );
 
   if (!user) return res.status(404).send("Not found");
-
+  const token = user.generateAuthToken();
   user.password = "";
-  res.send(user);
+  res
+    .header("x-auth-token", token)
+    .header("access-control-expose-headers", "x-auth-token")
+    .send(user);
 });
 
 //Delete a user

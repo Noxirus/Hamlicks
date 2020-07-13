@@ -19,9 +19,6 @@ require("./startup/prod")(app);
 //git commit -m "message here"
 //git push heroku master
 
-app.set("view engine", "pug");
-app.set("views", "./views");
-
 //use when you want to know all the requests that are being made to the server
 
 //Configuration

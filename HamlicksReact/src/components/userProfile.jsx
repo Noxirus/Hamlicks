@@ -2,6 +2,7 @@ import React from "react";
 import Content from "./common/content";
 import { getUser } from "../services/userService";
 import { getCurrentUser } from "../services/authService";
+import { Link } from "react-router-dom";
 
 class UserProfile extends Content {
   state = {
@@ -17,8 +18,7 @@ class UserProfile extends Content {
     try {
       const userId = this.props.match.params.id;
       const token = await getCurrentUser();
-      /*TODO this will ensure others cant view other profiles, Needs to be checked on backend as well */
-      //TODO add admin access so that if the person is admin they can view other profiles
+      //Check if the user token isnt admin or the users Id
       if (token._id !== userId && !token.isAdmin)
         return this.props.history.replace("/not-found");
       const { data: user } = await getUser(userId);
@@ -48,6 +48,9 @@ class UserProfile extends Content {
       <React.Fragment>
         <h1>{this.state.data.name}</h1>
         <h1>{this.state.data.email}</h1>
+        <Link to={`/usersedit/${this.state.data._id}`}>
+          <button className="btn btn-primary btn-sm">Edit</button>
+        </Link>
       </React.Fragment>
     );
   }

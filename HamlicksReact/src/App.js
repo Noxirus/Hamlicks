@@ -17,6 +17,7 @@ import auth from "./services/authService";
 import RegisterForm from "./components/registerForm";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import UserForm from "./components/userForm";
 //TODO the import statements are getting a bit messy, maybe a start up component?
 //TODO component will be "make your own ice cream"
 //TODO Fix the navbar extend button (currently if the window is too small and the collapsed window button shows up clicking it wont work)
@@ -45,6 +46,7 @@ class App extends Component {
               path="/users"
               render={(props) => <Users {...props} user={user} />}
             />
+            <ProtectedRoute path="/usersedit/:id" component={UserForm} />
             <Route path="/about" component={About} />
             <Route path="/flavours/:id" component={FlavourDescription} />
             <Route

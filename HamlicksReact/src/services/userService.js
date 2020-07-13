@@ -27,4 +27,14 @@ export function getUser(userId) {
   return http.get(userUrl(userId));
 }
 
+export function saveUser(user) {
+  if (user._id) {
+    const body = { ...user };
+    delete body._id;
+    return http.put(userUrl(user._id), body);
+  } else {
+    return http.post(apiEndpoint, user);
+  }
+}
+
 //TODO for backend services you will want to add an update password as well as attach it to this service

@@ -15,7 +15,7 @@ class UsersTable extends Component {
   editColumn = {
     key: "edit",
     content: (user) => (
-      <Link to={`/users/${user._id}`}>
+      <Link to={`/usersedit/${user._id}`}>
         <button className="btn btn-primary btn-sm">Edit</button>
       </Link>
     ),
