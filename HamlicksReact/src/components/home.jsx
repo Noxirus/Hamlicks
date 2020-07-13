@@ -1,8 +1,8 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "../Images/Carousel1.jpg";
-import image2 from "../Images/Carousel2.jpg";
-import image3 from "../Images/Carousel3.jpg";
+import image1 from "../images/Carousel1.jpg";
+import image2 from "../images/Carousel2.jpg";
+import image3 from "../images/Carousel3.jpg";
 import { Link } from "react-router-dom";
 
 //TODO Change the styling for each page to a CSS page, makes it less messy

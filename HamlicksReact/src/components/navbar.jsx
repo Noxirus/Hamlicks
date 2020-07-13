@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../Images/Hamlicks_LOGO.png";
-import title from "../Images/Hamlicks_TITLE.png";
+import logo from "../images/Hamlicks_LOGO.png";
+import title from "../images/Hamlicks_TITLE.png";
 
 const NavBar = ({ user }) => {
   return (

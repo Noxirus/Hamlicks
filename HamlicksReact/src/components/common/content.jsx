@@ -9,7 +9,7 @@ class Content extends Component {
   /*TODO add a nice background to the content window */
   renderImage(name, label, type = "image") {
     const { data } = this.state;
-    return <img src={data[name]} alt={name} height="120" width="220" />;
+    return <img src={data.picture} alt={name} height="400" width="320" />;
   }
 }
 

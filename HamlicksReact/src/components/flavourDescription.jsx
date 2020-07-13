@@ -38,7 +38,11 @@ class FlavourDescription extends Content {
 
   //input the flavour attained via the URL and set the objects data to the fields in the form
   mapToViewModel(flavour) {
-    this.setState({ name: flavour.name });
+    this.setState({
+      name: flavour.name,
+      cost: flavour.cost,
+      licks: flavour.licks,
+    });
     return {
       _id: flavour._id,
       name: flavour.name,
@@ -53,9 +57,18 @@ class FlavourDescription extends Content {
   render() {
     const user = auth.getCurrentUser();
     return (
-      <div>
-        <h1>{this.state.name}</h1>
-        {this.renderText("description", "Description")}
+      <div className="container">
+        <div className="row">
+          <div className="col-sm">
+            <h1>{this.state.name}</h1>
+            {this.renderText("description", "Description")}
+            <br />
+            <p>Cost: ${this.state.cost}</p>
+            <p>Licks: {this.state.licks}/5</p>
+          </div>
+          <div className="col-sm">{this.renderImage("image", "Image")}</div>
+        </div>
+
         {user && user.isAdmin && (
           <Link to={`/flavoursedit/${this.state.data._id}`}>
             <button className="btn btn-primary btn-sm">Edit</button>
@@ -64,7 +77,6 @@ class FlavourDescription extends Content {
 
         {/*
           {this.renderSelect("typeId", "Type", this.state.types)}
-          {this.renderText("picture", "Picture URL")}
           {this.renderInput("cost", "Cost")}
           {this.renderInput("licks", "Licks", "Number")}
           
