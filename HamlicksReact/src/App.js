@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import Navbar from "./components/navbar";
 import UserProfile from "./components/userProfile";
 import Flavours from "./components/flavours";
+import Users from "./components/users";
 import FlavourDescription from "./components/flavourDescription";
 import FlavourForm from "./components/flavourForm";
 import Home from "./components/home";
@@ -16,9 +17,11 @@ import auth from "./services/authService";
 import RegisterForm from "./components/registerForm";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-//TODO main page will have a slideshow of ice cream and information
+//TODO the import statements are getting a bit messy, maybe a start up component?
 //TODO component will be "make your own ice cream"
-//TODO Will need to go back over adding backend services on the Mosh tutorial when I have lined up the hamlicks backend with the react project
+//TODO Fix the navbar extend button (currently if the window is too small and the collapsed window button shows up clicking it wont work)
+//TODO If a user is deleted while logged in may need to check the DB And log them out Somewhere in this app make a consistent check to ensure their account is still in the DB
+//TODO add an edit profile form
 class App extends Component {
   state = {};
   componentDidMount() {
@@ -36,9 +39,12 @@ class App extends Component {
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={RegisterForm} />
-            {/*TODO at the moment this will direct someone to edit even if not admin */}
             <ProtectedRoute path="/flavoursedit/:id" component={FlavourForm} />
-            <ProtectedRoute path="/profile/:id" component={UserProfile} />
+            <ProtectedRoute path="/users/:id" component={UserProfile} />
+            <ProtectedRoute
+              path="/users"
+              render={(props) => <Users {...props} user={user} />}
+            />
             <Route path="/about" component={About} />
             <Route path="/flavours/:id" component={FlavourDescription} />
             <Route

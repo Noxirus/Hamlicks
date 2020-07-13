@@ -7,6 +7,12 @@ const express = require("express");
 const router = express.Router();
 
 //TODO look into Joi complexity for additional requirements for the password
+//Get request for users
+router.get("/", [auth, admin], async (req, res, next) => {
+  const users = await User.find().sort("name");
+  res.send(users);
+});
+
 router.get("/:id", auth, async (req, res) => {
   const user = await User.findById(req.params.id).select("-password");
 
@@ -37,7 +43,7 @@ router.post("/", async (req, res) => {
 });
 
 //Update a user in the DB[auth, admin],
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -64,8 +70,8 @@ router.put("/:id", async (req, res) => {
   res.send(user);
 });
 
-//Delete a user[auth, admin],
-router.delete("/:id", async (req, res) => {
+//Delete a user
+router.delete("/:id", [auth, admin], async (req, res) => {
   const user = await User.findByIdAndDelete(req.params.id);
 
   if (!user) return res.status(404).send("Not found");

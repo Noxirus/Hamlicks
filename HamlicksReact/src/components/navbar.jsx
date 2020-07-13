@@ -47,11 +47,19 @@ const NavBar = ({ user }) => {
               </li>
             </React.Fragment>
           )}
-          {/* User is not logged in */}
+          {user && user.isAdmin && (
+            <React.Fragment>
+              <li className="nav-item">
+                <NavLink className="nav-link" to={`/users`}>
+                  Users
+                </NavLink>
+              </li>
+            </React.Fragment>
+          )}
           {user && (
             <React.Fragment>
               <li className="nav-item">
-                <NavLink className="nav-link" to={`/profile/${user._id}`}>
+                <NavLink className="nav-link" to={`/users/${user._id}`}>
                   {user.name}
                 </NavLink>
               </li>

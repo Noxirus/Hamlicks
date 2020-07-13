@@ -19,7 +19,8 @@ class UserProfile extends Content {
       const token = await getCurrentUser();
       /*TODO this will ensure others cant view other profiles, Needs to be checked on backend as well */
       //TODO add admin access so that if the person is admin they can view other profiles
-      if (token._id !== userId) return this.props.history.replace("/not-found");
+      if (token._id !== userId && !token.isAdmin)
+        return this.props.history.replace("/not-found");
       const { data: user } = await getUser(userId);
       this.setState({ data: this.mapToViewModel(user) });
     } catch (ex) {

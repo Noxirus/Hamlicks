@@ -1,6 +1,8 @@
 import React from "react";
 import { getFlavour } from "../services/flavourService";
 import Content from "./common/content";
+import { Link } from "react-router-dom";
+import auth from "../services/authService";
 
 class FlavourDescription extends Content {
   state = {
@@ -49,10 +51,16 @@ class FlavourDescription extends Content {
   }
   /* TODO design a nice layout for the ice cream descriptions here */
   render() {
+    const user = auth.getCurrentUser();
     return (
       <div>
         <h1>{this.state.name}</h1>
         {this.renderText("description", "Description")}
+        {user && user.isAdmin && (
+          <Link to={`/flavoursedit/${this.state.data._id}`}>
+            <button className="btn btn-primary btn-sm">Edit</button>
+          </Link>
+        )}
 
         {/*
           {this.renderSelect("typeId", "Type", this.state.types)}
