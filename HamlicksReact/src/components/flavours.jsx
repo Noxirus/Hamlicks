@@ -136,8 +136,8 @@ class Flavours extends Component {
               New Flavour
             </Link>
           )}
-          <p>Currently {totalCount} flavours in stock.</p>
-
+          {totalCount === 1 && <p>Currently {totalCount} flavour in stock.</p>}
+          {totalCount > 1 && <p>Currently {totalCount} flavours in stock.</p>}
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <FlavoursTable
             flavours={flavours}

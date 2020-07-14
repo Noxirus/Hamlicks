@@ -23,7 +23,6 @@ class UserForm extends Form {
   };
 
   async populateUser() {
-    //if a flavour is not found redirect to 404
     try {
       //checking the ID that is passed in via the URL if it is new do not populate fields
       //TODO I re-use this in a few places, maybe consolodate this?
@@ -62,9 +61,9 @@ class UserForm extends Form {
   doSubmit = async () => {
     //take data from the form and use it to save the user (either adding a new or updating existing)
     try {
-      const response = await saveUser(this.state.data);
-      auth.loginWithJwt(response.headers["x-auth-token"]);
-      window.location = "/";
+      await saveUser(this.state.data);
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };

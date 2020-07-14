@@ -13,6 +13,8 @@ class RegisterForm extends Form {
   schema = {
     email: Joi.string().required().label("Email"),
     password: Joi.string().required().min(5).label("Password"),
+    //TODO this works but for some reason the error message does not go away
+    passwordcheck: Joi.any().valid(Joi.ref("password")),
     name: Joi.string().required().min(2).label("Name"),
   };
 
@@ -38,6 +40,7 @@ class RegisterForm extends Form {
           {this.renderInput("email", "Email")}
           {this.renderInput("name", "Name")}
           {this.renderInput("password", "Password", "password")}
+          {this.renderInput("passwordcheck", "Password", "password")}
           {this.renderButton("Register")}
         </form>
       </div>

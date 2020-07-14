@@ -1,8 +1,9 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "../images/Carousel1.jpg";
-import image2 from "../images/Carousel2.jpg";
-import image3 from "../images/Carousel3.jpg";
+import image1 from "../images/Hamlicks_LOGO.png";
+import image2 from "../images/Carousel1.jpg";
+import image3 from "../images/Carousel2.jpg";
+import image4 from "../images/Carousel3.jpg";
 import { Link } from "react-router-dom";
 
 //TODO Change the styling for each page to a CSS page, makes it less messy
@@ -14,9 +15,19 @@ const Home = () => {
           className="d-block w-100"
           src={image1}
           alt="First slide"
-          height="640"
-          width="440"
+          height="700"
+          width="500"
         />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={image2}
+          alt="Second Slide"
+          height="700"
+          width="500"
+        />
+
         <Carousel.Caption
           style={{
             backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -24,16 +35,16 @@ const Home = () => {
           }}
         >
           <h3 style={{ fontWeight: "bold" }}>Welcome to Hamlicks!</h3>
-          <p>The most delicious ice cream you will ever taste</p>
+          <p>Enter nice statement here</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={image2}
+          src={image3}
           alt="Third slide"
-          height="640"
-          width="440"
+          height="700"
+          width="500"
         />
 
         <Carousel.Caption
@@ -49,10 +60,10 @@ const Home = () => {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={image3}
+          src={image4}
           alt="Third slide"
-          height="640"
-          width="440"
+          height="700"
+          width="500"
         />
 
         <Carousel.Caption
