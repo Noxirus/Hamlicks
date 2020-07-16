@@ -10,6 +10,7 @@ import { getTypes } from "../services/typeService";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../styles/content.css";
 //This is the flavours component that will display all the flavours and handle the various requests
 class Flavours extends Component {
   state = {
@@ -118,7 +119,7 @@ class Flavours extends Component {
     const { totalCount, data: flavours } = this.getPageData();
 
     return (
-      <div className="row">
+      <div className="row back">
         <div className="col-2">
           <ListGroup
             items={this.state.types}

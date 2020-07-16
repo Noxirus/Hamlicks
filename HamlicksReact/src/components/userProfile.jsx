@@ -3,6 +3,7 @@ import Content from "./common/content";
 import { getUser } from "../services/userService";
 import { getCurrentUser } from "../services/authService";
 import { Link } from "react-router-dom";
+import "../styles/content.css";
 
 class UserProfile extends Content {
   state = {
@@ -45,13 +46,13 @@ class UserProfile extends Content {
   render() {
     //TODO make this particular section look nice, maybe let people pick their own picture?
     return (
-      <React.Fragment>
+      <div className="back">
         <h1>{this.state.data.name}</h1>
         <h1>{this.state.data.email}</h1>
         <Link to={`/usersedit/${this.state.data._id}`}>
           <button className="btn btn-primary btn-sm">Edit</button>
         </Link>
-      </React.Fragment>
+      </div>
     );
   }
 }

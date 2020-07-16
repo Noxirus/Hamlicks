@@ -1,0 +1,9 @@
+.back {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+}
+
+.nav-link {
+  font-size: 2rem;
+  font-weight: bold;
+}

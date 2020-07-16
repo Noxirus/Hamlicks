@@ -1,8 +1,9 @@
 import React from "react";
+import "../styles/content.css";
 
 const About = () => {
   return (
-    <React.Fragment>
+    <div className="back">
       <h1>About Hamlicks</h1>
       <p>
         This is a website for a fake ice cream company, as a side passion of
@@ -43,7 +44,7 @@ const About = () => {
         security. When logging in your computer will be passed a Json web token
         to verify your account details.
       </p>
-    </React.Fragment>
+    </div>
   );
 };
 

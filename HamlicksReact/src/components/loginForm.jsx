@@ -3,6 +3,7 @@ import Form from "./common/form";
 import Joi from "joi-browser";
 import auth from "../services/authService";
 import { Redirect } from "react-router-dom";
+import "../styles/content.css";
 
 //TODO Make the text forms for the login window a bit smaller maybe? (they dont need to be this long)
 class LoginForm extends Form {
@@ -34,7 +35,7 @@ class LoginForm extends Form {
   render() {
     if (auth.getCurrentUser()) return <Redirect to="/" />;
     return (
-      <div>
+      <div className="back">
         <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("email", "Email")}

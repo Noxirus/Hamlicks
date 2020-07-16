@@ -74,13 +74,6 @@ class FlavourDescription extends Content {
             <button className="btn btn-primary btn-sm">Edit</button>
           </Link>
         )}
-
-        {/*
-          {this.renderSelect("typeId", "Type", this.state.types)}
-          {this.renderInput("cost", "Cost")}
-          {this.renderInput("licks", "Licks", "Number")}
-          
-          */}
       </div>
     );
   }

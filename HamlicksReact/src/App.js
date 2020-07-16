@@ -17,7 +17,7 @@ import ProtectedRoute from "./components/common/protectedRoute";
 import auth from "./services/authService";
 import RegisterForm from "./components/registerForm";
 import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
+import "./styles/App.css";
 //TODO the import statements are getting a bit messy, maybe a start up component?
 //TODO component will be "make your own ice cream"
 //TODO Fix the navbar extend button (currently if the window is too small and the collapsed window button shows up clicking it wont work)

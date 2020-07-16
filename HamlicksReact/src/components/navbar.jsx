@@ -1,18 +1,18 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../images/Hamlicks_LOGO.png";
 import { Navbar, Nav } from "react-bootstrap";
 import title from "../images/Hamlicks_TITLE.png";
+import "../styles/content.css";
 
 const NavBar = ({ user }) => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="dark" expand="lg">
       <Link className="navbar-brand" to="/">
         <img src={title} alt="Hamlicks" height="100" width="350" />
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+        <Nav className="ml-auto">
           <NavLink className="nav-link" to="/flavours">
             Flavours
           </NavLink>

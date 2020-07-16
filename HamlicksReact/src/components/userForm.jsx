@@ -3,6 +3,7 @@ import Form from "./common/form";
 import Joi from "joi-browser";
 import { getUser, saveUser } from "../services/userService";
 import auth from "../services/authService";
+import "../styles/content.css";
 
 class UserForm extends Form {
   state = {
@@ -77,7 +78,7 @@ class UserForm extends Form {
 
   render() {
     return (
-      <div>
+      <div className="back">
         <h1>{this.state.name}</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("name", "Name")}
