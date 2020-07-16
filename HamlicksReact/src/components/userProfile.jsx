@@ -48,7 +48,7 @@ class UserProfile extends Content {
     return (
       <div className="back">
         <h1>{this.state.data.name}</h1>
-        <h1>{this.state.data.email}</h1>
+        <p>{this.state.data.email}</p>
         <Link to={`/usersedit/${this.state.data._id}`}>
           <button className="btn btn-primary btn-sm">Edit</button>
         </Link>
