@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getFlavours, deleteFlavour } from "../services/flavourService";
 import auth from "../services/authService";
+import * as userService from "../services/userService";
 import FlavoursTable from "./flavoursTable";
 import Pagination from "./common/pagination";
 import SearchBox from "./common/searchBox";
@@ -46,11 +47,26 @@ class Flavours extends Component {
     }
   };
 
-  handleLike = (flavour) => {
+  handleLike = async (flavour) => {
     const flavours = [...this.state.flavours];
     const index = flavours.indexOf(flavour);
     flavours[index] = { ...flavours[index] };
     flavours[index].liked = !flavours[index].liked;
+    let user = auth.getCurrentUser();
+    //Liking a flavour
+    if (flavours[index].liked && user) {
+      delete user.iat;
+      user.favorites.push(flavour._id);
+      const response = await userService.saveUser(user);
+      auth.loginWithJwt(response.headers["x-auth-token"]);
+      //Unliking a flavour
+    } else if (!flavours[index].liked && user) {
+      delete user.iat;
+      user.favorites.pop(flavour._id);
+      const response = await userService.saveUser(user);
+      auth.loginWithJwt(response.headers["x-auth-token"]);
+    }
+    console.log(flavour);
     this.setState({ flavours });
   };
 

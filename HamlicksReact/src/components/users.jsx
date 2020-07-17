@@ -102,7 +102,7 @@ class Users extends Component {
     const { totalCount, data: users } = this.getPageData();
 
     return (
-      <div className="row">
+      <div className="row back">
         <div className="col">
           {user && user.isAdmin && (
             <Link

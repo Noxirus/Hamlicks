@@ -29,6 +29,7 @@ class UserForm extends Form {
       //TODO I re-use this in a few places, maybe consolodate this?
       const userId = this.props.match.params.id;
       const token = await auth.getCurrentUser();
+      console.log(token);
       /*TODO this will ensure others cant view other profiles, Needs to be checked on backend as well */
       if (token._id !== userId && !token.isAdmin)
         return this.props.history.replace("/not-found");
@@ -50,7 +51,7 @@ class UserForm extends Form {
 
   //input the user attained via the URL and set the objects data to the fields in the form
   mapToViewModel(user) {
-    this.setState({ name: user.name });
+    this.setState({ name: user.name, favorites: user.favorites });
     return {
       _id: user._id,
       name: user.name,
@@ -61,8 +62,17 @@ class UserForm extends Form {
 
   doSubmit = async () => {
     //take data from the form and use it to save the user (either adding a new or updating existing)
+    //TODO Somehow I am ifnoring the isAdmin but if I try to ignore the favorites it will null out the list
     try {
-      await saveUser(this.state.data);
+      let user = auth.getCurrentUser();
+      delete user.iat;
+      user._id = this.state.data._id;
+      user.name = this.state.data.name;
+      user.email = this.state.data.email;
+      user.password = this.state.data.password;
+      user.favorites = this.state.favorites;
+      console.log(user);
+      await saveUser(user);
       const { state } = this.props.location;
       window.location = state ? state.from.pathname : "/";
     } catch (ex) {

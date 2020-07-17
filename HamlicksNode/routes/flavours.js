@@ -52,6 +52,7 @@ router.put("/:id", [auth, admin], async (req, res) => {
       description: req.body.description,
       cost: req.body.cost,
       licks: req.body.licks,
+      likes: req.body.likes,
       picture: req.body.picture,
     },
     {

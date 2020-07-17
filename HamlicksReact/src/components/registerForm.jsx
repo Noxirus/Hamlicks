@@ -7,19 +7,13 @@ import "../styles/content.css";
 
 class RegisterForm extends Form {
   state = {
-    data: { email: "", password: "", name: "", passwordcheck: "" },
+    data: { email: "", password: "", name: "" },
     errors: {},
   };
 
   schema = {
     email: Joi.string().required().label("Email"),
     password: Joi.string().required().min(5).label("Password"),
-    //TODO this works but for some reason the error message does not go away
-    /*passwordcheck: Joi.string()
-      .required()
-      .min(5)
-      .label("Password Check")
-      .valid(Joi.ref("password")), */
     name: Joi.string().required().min(2).label("Name"),
   };
 
@@ -45,7 +39,6 @@ class RegisterForm extends Form {
           {this.renderInput("email", "Email")}
           {this.renderInput("name", "Name")}
           {this.renderInput("password", "Password", "password")}
-          {/*this.renderInput("passwordcheck", "Password Check", "password")*/}
           {this.renderButton("Register")}
         </form>
       </div>

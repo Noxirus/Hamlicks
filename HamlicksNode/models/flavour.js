@@ -9,6 +9,7 @@ const flavourSchema = new mongoose.Schema({
   description: String,
   cost: Number,
   licks: Number,
+  likes: Number,
   //TODO figure out how to add an image to mongodb, currently will just be the path to the picture
   picture: String,
 });
@@ -23,6 +24,7 @@ function validateflavour(flavour) {
     description: Joi.string(),
     cost: Joi.number(),
     licks: Joi.number(),
+    likes: Joi.number(),
     picture: Joi.string(),
   };
 

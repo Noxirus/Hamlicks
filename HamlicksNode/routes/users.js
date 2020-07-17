@@ -48,21 +48,36 @@ router.put("/:id", auth, async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  //TODO Crypt the password
-  const salt = await bcrypt.genSalt(10);
-  encryptedPassword = await bcrypt.hash(req.body.password, salt);
+  if (req.body.password !== undefined) {
+    let user;
+    const salt = await bcrypt.genSalt(10);
+    encryptedPassword = await bcrypt.hash(req.body.password, salt);
 
-  const user = await User.findByIdAndUpdate(
-    req.params.id,
-    {
-      name: req.body.name,
-      email: req.body.email,
-      password: encryptedPassword,
-    },
-    {
-      new: true,
-    }
-  );
+    user = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        email: req.body.email,
+        password: encryptedPassword,
+        favorites: req.body.favorites,
+      },
+      {
+        new: true,
+      }
+    );
+  } else {
+    user = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        email: req.body.email,
+        favorites: req.body.favorites,
+      },
+      {
+        new: true,
+      }
+    );
+  }
 
   if (!user) return res.status(404).send("Not found");
   const token = user.generateAuthToken();

@@ -16,6 +16,7 @@ export async function register(user) {
     email: user.email,
     name: user.name,
     password: user.password,
+    favorites: [],
   });
 }
 
