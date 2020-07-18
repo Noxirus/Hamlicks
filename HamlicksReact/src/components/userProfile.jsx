@@ -3,7 +3,6 @@ import Content from "./common/content";
 import { getUser } from "../services/userService";
 import { getCurrentUser } from "../services/authService";
 import { Link } from "react-router-dom";
-import "../styles/content.css";
 
 class UserProfile extends Content {
   state = {

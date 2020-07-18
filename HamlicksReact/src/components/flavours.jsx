@@ -11,7 +11,6 @@ import { getTypes } from "../services/typeService";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../styles/content.css";
 //This is the flavours component that will display all the flavours and handle the various requests
 class Flavours extends Component {
   state = {
@@ -152,7 +151,7 @@ class Flavours extends Component {
 
     return (
       <div className="row back">
-        <div className="col-2">
+        <div className="col-md-2 col-sm-4">
           <ListGroup
             items={this.state.types}
             selectedItem={this.state.selectedType}

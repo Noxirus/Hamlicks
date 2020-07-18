@@ -8,7 +8,6 @@ import { paginate } from "../utils/paginate";
 import _ from "lodash";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import "../styles/content.css";
 //This is the flavours component that will display all the flavours and handle the various requests
 class Users extends Component {
   state = {

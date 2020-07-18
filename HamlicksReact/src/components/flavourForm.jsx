@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./common/form";
 import Joi from "joi-browser";
 import { getTypes } from "../services/typeService";
+import { Link } from "react-router-dom";
 import { getFlavour, saveFlavour } from "../services/flavourService";
 
 class FlavourForm extends Form {
@@ -82,7 +83,7 @@ class FlavourForm extends Form {
 
   render() {
     return (
-      <div>
+      <div className="back">
         <h1>{this.state.name}</h1>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("name", "Name")}
@@ -91,6 +92,9 @@ class FlavourForm extends Form {
           {this.renderInput("cost", "Cost")}
           {this.renderInput("licks", "Licks", "Number")}
           {this.renderInput("picture", "Picture URL")}
+          <Link to={"/flavours"}>
+            <button className="btn btn-success">Back</button>
+          </Link>
           {this.renderButton("Save")}
         </form>
       </div>

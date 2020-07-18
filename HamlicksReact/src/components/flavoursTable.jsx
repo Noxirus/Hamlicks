@@ -3,7 +3,6 @@ import auth from "../services/authService";
 import Like from "./common/like";
 import Table from "./common/table";
 import { Link } from "react-router-dom";
-import "../styles/content.css";
 
 //TODO new flavour button does not show if there are no flavours
 class FlavoursTable extends Component {

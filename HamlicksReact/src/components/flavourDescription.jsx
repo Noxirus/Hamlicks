@@ -3,7 +3,6 @@ import { getFlavour } from "../services/flavourService";
 import Content from "./common/content";
 import { Link } from "react-router-dom";
 import auth from "../services/authService";
-import "../styles/content.css";
 
 class FlavourDescription extends Content {
   state = {
@@ -57,6 +56,7 @@ class FlavourDescription extends Content {
   /* TODO design a nice layout for the ice cream descriptions here */
   render() {
     const user = auth.getCurrentUser();
+    console.log(this.props);
     return (
       <div className="container back">
         <div className="row">
@@ -69,10 +69,12 @@ class FlavourDescription extends Content {
           </div>
           <div className="col-sm">{this.renderImage("image", "Image")}</div>
         </div>
-
+        <Link to={"/flavours"}>
+          <button className="btn btn-success">Back</button>
+        </Link>
         {user && user.isAdmin && (
           <Link to={`/flavoursedit/${this.state.data._id}`}>
-            <button className="btn btn-primary btn-sm">Edit</button>
+            <button className="btn btn-primary">Edit</button>
           </Link>
         )}
       </div>

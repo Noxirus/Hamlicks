@@ -3,7 +3,6 @@ import Form from "./common/form";
 import Joi from "joi-browser";
 import * as userService from "../services/userService";
 import auth from "../services/authService";
-import "../styles/content.css";
 
 class RegisterForm extends Form {
   state = {

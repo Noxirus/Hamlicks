@@ -39,7 +39,8 @@
 
 body {
   background-image: url("/images/SnowyBackground.jpg");
-  background-size: cover;
+  background-size: cover 100%;
+  background-repeat: no-repeat;
 }
 
 .center {
