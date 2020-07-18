@@ -56,7 +56,6 @@ class FlavourDescription extends Content {
   /* TODO design a nice layout for the ice cream descriptions here */
   render() {
     const user = auth.getCurrentUser();
-    console.log(this.props);
     return (
       <div className="container back">
         <div className="row">

@@ -28,7 +28,6 @@ class UserForm extends Form {
       //TODO I re-use this in a few places, maybe consolodate this?
       const userId = this.props.match.params.id;
       const token = await auth.getCurrentUser();
-      console.log(token);
       /*TODO this will ensure others cant view other profiles, Needs to be checked on backend as well */
       if (token._id !== userId && !token.isAdmin)
         return this.props.history.replace("/not-found");
@@ -70,7 +69,6 @@ class UserForm extends Form {
       user.email = this.state.data.email;
       user.password = this.state.data.password;
       user.favorites = this.state.favorites;
-      console.log(user);
       await saveUser(user);
       const { state } = this.props.location;
       window.location = state ? state.from.pathname : "/";

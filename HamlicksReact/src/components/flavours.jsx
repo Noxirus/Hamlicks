@@ -65,7 +65,6 @@ class Flavours extends Component {
       _.remove(user.favorites, function (e) {
         return e === flavour._id;
       });
-      console.log(user.favorites);
       const response = await userService.saveUser(user);
       auth.loginWithJwt(response.headers["x-auth-token"]);
     }
