@@ -62,11 +62,14 @@ class Flavours extends Component {
       //Unliking a flavour
     } else if (!flavours[index].liked && user) {
       delete user.iat;
-      user.favorites.pop(flavour._id);
+      //TODO Pop just removed the end, splice will remove all based on a range
+      _.remove(user.favorites, function (e) {
+        return e === flavour._id;
+      });
+      console.log(user.favorites);
       const response = await userService.saveUser(user);
       auth.loginWithJwt(response.headers["x-auth-token"]);
     }
-    console.log(flavour);
     this.setState({ flavours });
   };
 
@@ -107,7 +110,20 @@ class Flavours extends Component {
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
     const flavours = paginate(sorted, currentPage, pageSize);
-
+    //Get users liked flavours
+    const user = auth.getCurrentUser();
+    if (user) {
+      if (user.favorites.length === 0) {
+        return { totalCount: filtered.length, data: flavours };
+      }
+      for (let i = 0; i < user.favorites.length; i++) {
+        for (let y = 0; y < flavours.length; y++) {
+          if (user.favorites[i] === flavours[y]._id) {
+            flavours[y].liked = true;
+          }
+        }
+      }
+    }
     return { totalCount: filtered.length, data: flavours };
   };
 

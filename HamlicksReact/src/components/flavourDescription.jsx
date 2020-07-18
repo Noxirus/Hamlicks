@@ -3,6 +3,7 @@ import { getFlavour } from "../services/flavourService";
 import Content from "./common/content";
 import { Link } from "react-router-dom";
 import auth from "../services/authService";
+import "../styles/content.css";
 
 class FlavourDescription extends Content {
   state = {
@@ -57,7 +58,7 @@ class FlavourDescription extends Content {
   render() {
     const user = auth.getCurrentUser();
     return (
-      <div className="container">
+      <div className="container back">
         <div className="row">
           <div className="col-sm">
             <h1>{this.state.name}</h1>
