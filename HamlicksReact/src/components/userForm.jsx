@@ -21,7 +21,7 @@ class UserForm extends Form {
     email: Joi.string().email().label("Email"),
     password: Joi.string().min(5),
   };
-
+  //TODO Having to type a new password when updating profile seems difficult, consider removing?
   async populateUser() {
     try {
       //checking the ID that is passed in via the URL if it is new do not populate fields

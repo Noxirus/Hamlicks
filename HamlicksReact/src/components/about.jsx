@@ -17,8 +17,9 @@ const About = () => {
       <h2>Details</h2>
       <p>
         The flavours page is organized via pagination and you are able to sort
-        each column either via descending or ascending order. A like this button
-        is also in place to potentially track your accounts favorite flavours
+        each column either via descending or ascending order. Your favoured
+        flavours will be saved to your account and remembered next time you log
+        in.
       </p>
       <p>
         When logged in the navigation bar will change accordingly (also based on
