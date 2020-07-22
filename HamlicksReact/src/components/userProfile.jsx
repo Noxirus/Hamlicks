@@ -4,6 +4,8 @@ import { getUser } from "../services/userService";
 import { getCurrentUser } from "../services/authService";
 import { getFlavour } from "../services/flavourService";
 import { Link } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import piggyImage from "../images/Piggy.png";
 
 class UserProfile extends Content {
   state = {
@@ -14,7 +16,6 @@ class UserProfile extends Content {
     },
   };
 
-  //TODO update users to display their favorite ice creams? (An array of flavours that get added when you click the heart)
   //Will need to be added to the backend service as well
   async populateUser() {
     try {
@@ -74,16 +75,30 @@ class UserProfile extends Content {
     }
 
     return (
-      <div className="back">
-        <h1>{this.state.data.name}</h1>
-        <p>{this.state.data.email}</p>
-        <h3>Favorite Flavours</h3>
-        {favoritesList}
-        <br />
-        <Link to={`/usersedit/${this.state.data._id}`}>
-          <button className="btn btn-primary btn-sm">Edit</button>
-        </Link>
-      </div>
+      <Container className="back">
+        <Row>
+          <Col>
+            <h1>{this.state.data.name}</h1>
+            <p>{this.state.data.email}</p>
+            <h3>Favorite Flavours</h3>
+            {favoritesList}
+            <br />
+            <Link to={`/usersedit/${this.state.data._id}`}>
+              <button className="btn btn-primary btn-sm">Edit</button>
+            </Link>
+          </Col>
+          <Col>
+            <img
+              className="center"
+              src={piggyImage}
+              alt="Oink Oink"
+              height="400"
+              width="300"
+              margin="auto"
+            />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

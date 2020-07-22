@@ -28,14 +28,11 @@ const Home = () => {
           width="500"
         />
 
-        <Carousel.Caption
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            color: "black",
-          }}
-        >
-          <h3 style={{ fontWeight: "bold" }}>Welcome to Hamlicks!</h3>
-          <p>Enter nice statement here</p>
+        <Carousel.Caption className="carouselCaption">
+          <h3 className="carouselHeader">Welcome to Hamlicks!</h3>
+          <p className="carouselText">
+            Where new ideas turn into interesting flavours
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -47,14 +44,11 @@ const Home = () => {
           width="500"
         />
 
-        <Carousel.Caption
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            color: "black",
-          }}
-        >
-          <h3 style={{ fontWeight: "bold" }}>Important!</h3>
-          <p>This is a mock website to showcase on the developers portfolio</p>
+        <Carousel.Caption className="carouselCaption">
+          <h3 className="carouselHeader">Important!</h3>
+          <p className="carouselText">
+            This is a mock website to showcase on the developers portfolio
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -66,14 +60,9 @@ const Home = () => {
           width="500"
         />
 
-        <Carousel.Caption
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
-            color: "black",
-          }}
-        >
-          <h3 style={{ fontWeight: "bold" }}>Experience</h3>
-          <p>Constantly experimenting with new and interesting flavours</p>
+        <Carousel.Caption className="carouselCaption">
+          <h3 className="carouselHeader">Experience</h3>
+          <p className="carouselText">Check out our flavours!</p>
           <Link
             className="nav-link center"
             to="/flavours"

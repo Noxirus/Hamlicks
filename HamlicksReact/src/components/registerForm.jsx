@@ -3,6 +3,8 @@ import Form from "./common/form";
 import Joi from "joi-browser";
 import * as userService from "../services/userService";
 import auth from "../services/authService";
+import strawPiggyImage from "../images/Strawpiggy.png";
+import { Container, Row, Col } from "react-bootstrap";
 
 class RegisterForm extends Form {
   state = {
@@ -32,15 +34,29 @@ class RegisterForm extends Form {
 
   render() {
     return (
-      <div className="back">
-        <h1>Register</h1>
-        <form onSubmit={this.handleSubmit}>
-          {this.renderInput("email", "Email")}
-          {this.renderInput("name", "Name")}
-          {this.renderInput("password", "Password", "password")}
-          {this.renderButton("Register")}
-        </form>
-      </div>
+      <Container className="back">
+        <Row>
+          <Col>
+            <h1>Register</h1>
+            <form onSubmit={this.handleSubmit}>
+              {this.renderInput("email", "Email")}
+              {this.renderInput("name", "Name")}
+              {this.renderInput("password", "Password", "password")}
+              {this.renderButton("Register")}
+            </form>
+          </Col>
+          <Col>
+            <img
+              className="center"
+              src={strawPiggyImage}
+              alt="Strawpiggy"
+              height="400"
+              width="300"
+              margin="auto"
+            />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
