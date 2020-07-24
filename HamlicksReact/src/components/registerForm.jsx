@@ -36,7 +36,7 @@ class RegisterForm extends Form {
     return (
       <Container className="back">
         <Row>
-          <Col>
+          <Col xs={12} md={7}>
             <h1>Register</h1>
             <form onSubmit={this.handleSubmit}>
               {this.renderInput("email", "Email")}
@@ -45,7 +45,7 @@ class RegisterForm extends Form {
               {this.renderButton("Register")}
             </form>
           </Col>
-          <Col>
+          <Col xs={12} md={5}>
             <img
               className="center"
               src={strawPiggyImage}

@@ -142,7 +142,7 @@ class Flavours extends Component {
               New Flavour
             </Link>
           )}
-          <p>There are no flavours in stock.</p>
+          <p className="back">There are no flavours in stock.</p>
         </div>
       );
 

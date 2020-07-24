@@ -77,7 +77,7 @@ class UserProfile extends Content {
     return (
       <Container className="back">
         <Row>
-          <Col>
+          <Col xs={12} md={7}>
             <h1>{this.state.data.name}</h1>
             <p>{this.state.data.email}</p>
             <h3>Favorite Flavours</h3>
@@ -87,7 +87,7 @@ class UserProfile extends Content {
               <button className="btn btn-primary btn-sm">Edit</button>
             </Link>
           </Col>
-          <Col>
+          <Col xs={12} md={5}>
             <img
               className="center"
               src={piggyImage}

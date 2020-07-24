@@ -38,7 +38,7 @@ class LoginForm extends Form {
     return (
       <Container className="back">
         <Row>
-          <Col>
+          <Col xs={12} md={7}>
             <h1>Login</h1>
             <form onSubmit={this.handleSubmit}>
               {this.renderInput("email", "Email")}
@@ -46,7 +46,7 @@ class LoginForm extends Form {
               {this.renderButton("Login")}
             </form>
           </Col>
-          <Col>
+          <Col xs={12} md={5}>
             <img
               className="center"
               src={chickyImage}

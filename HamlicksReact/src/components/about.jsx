@@ -19,7 +19,7 @@ const About = () => {
       </p>
       <h2>Details</h2>
       <Row>
-        <Col xs={7}>
+        <Col xs={12} md={6}>
           <p>
             The flavours page is organized via pagination and you are able to
             sort each column either via descending or ascending order. Your
@@ -39,12 +39,12 @@ const About = () => {
             correctly
           </p>
         </Col>
-        <Col className="center">
+        <Col className="center" xs={9} md={6}>
           <img
             className="center"
             src={mintyImage}
             alt="Does that ice cream have.. ears?"
-            height="300"
+            height="auto"
             width="300"
             margin="auto"
           />

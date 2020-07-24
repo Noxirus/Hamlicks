@@ -59,14 +59,16 @@ class FlavourDescription extends Content {
     return (
       <div className="container back">
         <div className="row">
-          <div className="col-sm">
+          <div className="col-sm-9 col-md-6">
             <h1>{this.state.name}</h1>
             {this.renderText("description", "Description")}
             <br />
             <p>Cost: ${this.state.cost}</p>
             <p>Licks: {this.state.licks}/5</p>
           </div>
-          <div className="col-sm">{this.renderImage("image", "Image")}</div>
+          <div className="col-sm-9 col-md-6">
+            {this.renderImage("image", "Image")}
+          </div>
         </div>
         <Link to={"/flavours"}>
           <button className="btn btn-success">Back</button>

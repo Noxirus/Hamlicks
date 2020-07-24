@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 
 //Post a new type into the database
 //auth will run the authorization, make sure the token is correctly on the user
-router.post("/", auth, async (req, res) => {
+router.post("/", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
@@ -29,7 +29,7 @@ router.post("/", auth, async (req, res) => {
 
 //Update a type in the DB
 //TODO may also need to update all other aspects of the type class
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
