@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import image1 from "../images/Hamlicks_LOGO.png";
+import image1 from "../images/Hamlicks_LOGOCropped.png";
 import image2 from "../images/Carousel1.jpg";
 import image3 from "../images/Carousel2.jpg";
 import image4 from "../images/Carousel3.jpg";
@@ -11,22 +11,10 @@ const Home = () => {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image1}
-          alt="First slide"
-          height="700"
-          width="500"
-        />
+        <img className="w-100 iceCreamImage" src={image1} alt="First slide" />
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image2}
-          alt="Second Slide"
-          height="700"
-          width="500"
-        />
+        <img className="w-100 iceCreamImage" src={image2} alt="Second Slide" />
 
         <Carousel.Caption className="carouselCaption">
           <h3 className="carouselHeader">Welcome to Hamlicks!</h3>
@@ -36,13 +24,7 @@ const Home = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image3}
-          alt="Third slide"
-          height="700"
-          width="500"
-        />
+        <img className="w-100 iceCreamImage" src={image3} alt="Third slide" />
 
         <Carousel.Caption className="carouselCaption">
           <h3 className="carouselHeader">Important!</h3>
@@ -52,13 +34,7 @@ const Home = () => {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={image4}
-          alt="Third slide"
-          height="700"
-          width="500"
-        />
+        <img className="w-100 iceCreamImage" src={image4} alt="Third slide" />
 
         <Carousel.Caption className="carouselCaption">
           <h3 className="carouselHeader">Experience</h3>

@@ -17,6 +17,11 @@
 
 .iceCreamImage {
   margin: auto;
+  height: 600px;
+}
+
+.carousel {
+  vertical-align: middle;
 }
 
 .carouselText {
