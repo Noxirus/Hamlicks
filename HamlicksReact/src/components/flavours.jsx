@@ -142,7 +142,7 @@ class Flavours extends Component {
               New Flavour
             </Link>
           )}
-          <p className="back">Getting the flavours from the freezer.</p>
+          <p className="back">There are no flavours in stock.</p>
         </div>
       );
 
