@@ -62,6 +62,7 @@ const About = () => {
         security. When logging in your computer will be passed a Json web token
         to verify your account details.
       </p>
+      <p>Artwork by Yu Nakamura</p>
       <img
         className="d-block w-100"
         src={aboutImage}
